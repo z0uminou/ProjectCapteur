@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
 from pathlib import Path
+#from huey import RedisHuey
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -24,6 +25,15 @@ SECRET_KEY = 'django-insecure-e#=9@sy4=ke2sgtrxc@$a#maz=ac9!is%n(3*zm+gvp-b3mz*v
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
+"""""
+HUEY = RedisHuey(
+    'my_app',  # Name for the queue
+    host='localhost',  # Redis server host
+    port=6379,         # Redis port
+    result_store=True, # Store results of tasks
+    immediate=False    # Disable immediate mode for testing
+)
+"""
 
 ALLOWED_HOSTS = []
 
@@ -127,5 +137,3 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
-CELERY_BROKER_URL = 'redis://localhost:6379'

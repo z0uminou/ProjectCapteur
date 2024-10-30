@@ -56,4 +56,4 @@ class TemperatureReading(models.Model):
     timestamp = models.DateTimeField(auto_now_add=True)
     
     def __str__(self):
-        return f"Ruche {self.hive_id} - {self.temperature}°C"
+        return f"Ruche {self.hive_id} - Capteur : {self.id_capteur} : {self.temperature}°C"

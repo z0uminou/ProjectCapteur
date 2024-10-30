@@ -59,7 +59,8 @@ class TemperatureSensorManager:
                 except ValueError:
                     print(f"Erreur de conversion de la température pour le capteur dans {folder}")
             else:
-                #print(f"Le fichier {self.filename} n'existe pas dans le dossier {folder}")
+                print(f"Le fichier {self.filename} n'existe pas dans le dossier {folder}")
+        
         return temperatures
 
 # Exemple d'utilisation

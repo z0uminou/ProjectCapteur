@@ -3,6 +3,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from .TensorManagement import TemperatureSensorManager
 import time  # pour la simulation du délai de mesure
+from django.http import JsonResponse
 
 
 
@@ -25,7 +26,7 @@ def get_sensor_data():
     # Remplacez par votre code de récupération des données 1-wire
     return TemperatureSensorManager(get_temperatures)  # Exemple : température en °C
 
-def record_temperature(request):
+#def record_temperature(request):
     if request.user.is_authenticated:
         hive_id = request.GET.get('hive_id')
         temperature = get_sensor_data()
